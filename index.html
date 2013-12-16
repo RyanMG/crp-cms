@@ -22,13 +22,6 @@
     
     </head>
     <body>
-    <?php
-        $mysqli = new mysqli("localhost", "drhall_crpUser", "test123", "drhall_crptest");
-           if ($mysqli->connect_errno) {
-             echo "Failed to connect to database: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
-        }
-        include('init.php');
-    ?>
 
         <header>
             <img src="http://www.thecrpgroup.com/crpweb/promo-site/images/crp-logo.svg" class="head-logo">
@@ -104,10 +97,6 @@
                 <p class="page-description">Change information or images for an existing project. Choose a project from the list to see current details.</p>
 
                 <section class="results-box">
-                 <?php
-                    list($th,$he,$ig,$ava) = buildArray($mysqli);
-                    listTitles($th,$he,$ig,$ava);
-                ?>
                 </section>
             </div> <!-- end #update -->
 
@@ -116,10 +105,6 @@
                 <p class="page-description">Completely remove a project. Choose a project from the list to see its details.</p>
 
                 <section class="results-box">
-                 <?php
-                    list($th,$he,$ig,$ava) = buildArray($mysqli);
-                    listTitles($th,$he,$ig,$ava);
-                ?>
                 </section>
             </div> <!-- end #remove -->
 
@@ -166,22 +151,16 @@
                         if ($(this).val() == '' ) empty = true;
                         else if ($(this).val() !== "SUBMIT") dataString.push($(this).val());
                     });
-                    console.log(dataString);
                     if (!empty) {
                        $('.formField').fadeOut('slow');
-                       $.ajax( {
-                        type: "POST",
-                         url: "addNew.php",
-                         data: dataString,
-                         success: function(response){
-                            
+                       var fs = require('fs');
+                       fs.writeFile("newProj.json", dataString, function(err) {
+                         if (err) {
+                            console.log(err);
+                         } else {
                             $('#formField').text("Completed.");
-                            
-                         }, // end success call back
-                         error: function(error){
-                            console.log(error);
                          }
-                        }); // end ajax call
+                        });
                     } else {
                         alert('Not all form fields completed.');
                         return false;
