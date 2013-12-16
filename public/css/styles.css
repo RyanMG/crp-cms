@@ -1,0 +1,31 @@
+html{outline:none}
+body{background-color:#2a4e7c;width:100%;min-width:950px;overflow:auto}
+header{width:100%;position:absolute;top:0;left:0;height:50px;background-color:#0e2d54;border-bottom:3px solid #fff;min-width:950px;}
+header img{position:absolute;height:60%;padding:10px;left:0}
+nav{position:absolute;right:0;height:50px;width:750px;overflow:visible;}
+nav ul{float:right;display:inline;text-align:right;text-decoration:none;padding-right:15px;margin:14px 0 14px 0}
+nav li{display:inline;color:#fff;font-family:helvetica,sans-serif;font-style:normal;font-weight:600;font-size:18px;padding-left:4px;padding-right:4px;}
+nav li a{display:inline;text-decoration:none;font-family:helvetica,sans-serif;font-style:normal;font-weight:100;font-size:13px;color:#fff;letter-spacing:.25px}
+nav li a:hover{color:#aaa}
+#wrapper{width:900px;height:600px;margin:70px auto 0 auto;padding:0;border:2px solid #fff;background-color:#bbb;-webkit-box-shadow:0 5px 10px #191919;-moz-box-shadow:0 5px 10px #191919;box-shadow:0 5px 10px #191919}
+h1{color:#0e2d54;font-family:helvetica,sans-serif;font-style:normal;font-weight:600;font-size:26px;text-align:center;letter-spacing:1px;padding-top:0;margin-bottom:0;margin-top:8px}
+.page-description{color:#0e2d54;font-family:helvetica,sans-serif;font-style:normal;font-weight:100;font-size:16px;text-align:center;letter-spacing:.5px;margin-top:1px;margin-bottom:4px;padding-left:20px;padding-right:20px;}
+.page-description div{display:none;position:absolute;top:70px;margin:0 auto;width:900px}
+.page-description div.current{display:block}
+.formField{height:100%;width:100%}
+form{padding-left:15px;padding-right:15px;}
+form ul{padding:0;margin:0}
+form li{text-decoration:none;list-style:none;}
+form li p{clear:left;color:#000;font-family:helvetica,sans-serif;font-style:normal;font-weight:400;font-size:14px;text-align:left;letter-spacing:.5px;padding:12px 0 3px 1px;margin:0;display:block}
+form li select{clear:left;padding:5px 5px 3px 2px;outline:none;border-radius:2px}
+form li input,form li textarea{clear:left;padding:3px 5px 3px 5px;outline:none;border-radius:2px;text-align:middle}
+form li input:focus,form li textarea:focus{border:2px solid #666}
+form li:first-child{padding-top:0}
+.submit-button{margin-top:10px;border-radius:6px;border:2px solid #666;padding:7px 12px 4px 12px;background-color:#fff;font-family:helvetica,sans-serif;font-style:normal;font-weight:600;font-size:14px;text-align:center;letter-spacing:.5px;color:#666}
+.submit-button:hover{background-color:#aaa;color:#333;border:2px solid #fff}
+h2{color:#0e2d54;font-family:helvetica,sans-serif;font-style:normal;font-weight:600;font-size:20px;text-align:center;letter-spacing:1px;padding-top:0;margin-bottom:2px;margin-top:8px;border-bottom:1px solid #0e2d54}
+.results-box{width:300px;height:490px;border:1px solid #000;background-color:#fff;position:absolute;left:20px;top:80px;display:block;overflow:auto;padding:10px;overflow-x:hidden;}
+.results-box a{text-decoration:none;color:#000}
+.results-box a:hover{color:#666}
+.results-text{margin:0;padding:0;text-decoration:none;font-family:helvetica,sans-serif;font-style:normal;font-weight:400;font-size:13px;text-align:left;letter-spacing:.5px}
+.txtinput{width:500px}

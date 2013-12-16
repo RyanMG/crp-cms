@@ -16,9 +16,9 @@ module.exports = function (grunt) {
     stylus: {
       compile: {
         expand: true,
-        cwd: 'resources/stylus',
-        src:['**/*.styl'],
-        dest: 'public/stylesheets',
+        cwd: 'app/styles',
+        src:['*.styl'],
+        dest: 'public/css',
         ext: '.css'
       }
     },
@@ -47,6 +47,7 @@ module.exports = function (grunt) {
       },
       stylus: {
         files: ['app/styles/*.styl'],
+        tasks: ['compileStyles'],
         options: { livereload: reloadPort }
       }
     }
@@ -69,6 +70,6 @@ module.exports = function (grunt) {
         });
     }, 500);
   });
-
+  grunt.registerTask('compileStyles', ['stylus']);
   grunt.registerTask('default', ['develop', 'watch']);
 };
