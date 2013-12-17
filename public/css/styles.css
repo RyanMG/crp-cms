@@ -2,15 +2,15 @@ html{outline:none}
 body{background-color:#2a4e7c;width:100%;overflow:auto;font-family:helvetica,sans-serif}
 .four-oh-four{text-align:center;margin-top:70px;}
 .four-oh-four h1{color:#fff;font-size:40px}
-.container{width:1200px;min-width:1200px;margin:0 auto;overflow:hidden}
-header{width:100%;height:70px;background-color:#0e2d54;border-bottom:2px solid #fff;min-width:900px;}
-header img{height:40px;left:0;float:left;margin-top:15px}
-header nav{overflow:visible;float:right;margin:28px 0 0 0;padding:0;}
+.container{width:900px;min-width:900px;margin:0 auto;overflow:hidden}
+header{width:100%;height:50px;background-color:#0e2d54;border-bottom:2px solid #fff;min-width:900px;}
+header img{height:30px;left:0;float:left;margin-top:10px}
+header nav{overflow:visible;float:right;margin:17px 0 0 0;padding:0;}
 header nav ul{display:inline;margin-left:0;text-align:right;text-decoration:none}
-header nav li{display:inline;padding-left:24px;}
-header nav li a{color:#fff;text-decoration:none;font-style:normal;font-weight:100;font-size:15px;letter-spacing:.5px}
+header nav li{display:inline;padding-left:22px;}
+header nav li a{color:#fff;text-decoration:none;font-style:normal;font-weight:100;font-size:11px;letter-spacing:.5px}
 header nav li a:hover{color:#aaa}
-#wrapper{width:1200px;height:600px;margin-top:70px;border:2px solid #fff;background-color:#bbb;-webkit-box-shadow:0 5px 10px #191919;-moz-box-shadow:0 5px 10px #191919;box-shadow:0 5px 10px #191919}
+#wrapper{width:900px;height:600px;margin-top:70px;border:2px solid #fff;background-color:#bbb;-webkit-box-shadow:0 5px 10px #191919;-moz-box-shadow:0 5px 10px #191919;box-shadow:0 5px 10px #191919}
 h1{color:#0e2d54;font-family:helvetica,sans-serif;font-style:normal;font-weight:600;font-size:26px;text-align:center;letter-spacing:1px;padding-top:0;margin-bottom:0;margin-top:8px}
 .page-description{color:#0e2d54;font-family:helvetica,sans-serif;font-style:normal;font-weight:100;font-size:16px;text-align:center;letter-spacing:.5px;margin-top:1px;margin-bottom:4px;padding-left:20px;padding-right:20px;}
 .page-description div{display:none;position:absolute;top:70px;margin:0 auto;width:900px}
