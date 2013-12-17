@@ -5,23 +5,8 @@ html(lang='en')
     meta(name='viewport', content='width=device-width')
     title The CRP Group  - Conte Management System
     link(rel='stylesheet', href='/components/normalize-css/normalize.css')
+    link(rel='stylesheet', href='/css/login.css')
     link(rel='stylesheet', href='/css/styles.css')
     script(src='http://localhost:35729/livereload.js')
   body
-    header
-      div.container
-        img.head-logo(src="img/crp-logo.svg")
-        nav
-          ul
-            li
-              a.nav-link(href="#add") ADD PROJECT
-            li
-              a.nav-link(href="#update") UPDATE PROJECT
-            li
-              a.nav-link(href="#remove") REMOVE PROJECT
-            li
-              a.nav-link(href="#reorder") REORDER PROJECTS
-            li
-              a.nav-link(href="http://www.thecrpgroup.com", target="_self") RETURN TO MAIN SITE
-
     block content
