@@ -26,3 +26,16 @@ exports.get = function(req, res) {
       sendResponse(res, projects, 201);
     });
 };
+
+exports.post = function(req, res) {
+  console.log(req);
+  //processPost(req.)
+};
+
+exports.delete = function(req, res) {
+  console.log(req);
+};
+
+exports.put = function(req, res) {
+  console.log(req);
+};

@@ -10,19 +10,19 @@ angular.module('crpCMSapp', [
     $routeProvider.
       when('/add', {
         templateUrl: 'pages/add',
-        controller: 'AppCtrl'
+        controller: 'AddProjectCtrl'
       }).
       when('/update', {
         templateUrl: 'pages/update',
-        controller: 'AppCtrl'
+        controller: 'UpdateProjectCtrl'
       }).
       when('/remove', {
         templateUrl: 'pages/remove',
-        controller: 'AppCtrl'
+        controller: 'RemoveProjectCtrl'
       }).
       when('/reorder', {
         templateUrl: 'pages/reorder',
-        controller: 'AppCtrl'
+        controller: 'ReorderProjectCtrl'
       }).
       otherwise({
         redirectTo: '/add'

@@ -9,6 +9,9 @@ module.exports = function(app){
   app.get('/logout', login.logout);
   
   app.get('/projects', projects.get);
+  app.post('/projects', projects.post);
+  app.delete('/projects', projects.delete);
+  app.put('/projects', projects.put);
 
   app.get('/pages/:page', ensureAuthenticated, routes.pages);
   app.get('*', ensureAuthenticated, routes.index);

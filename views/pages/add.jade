@@ -1,5 +1,5 @@
-div#add
-  form(method="post", action="/login")
+div#add(ng-controller='AddProjectCtrl')
+  form(method="post", action="/projects", name='add-form')
     fieldset
       legend Add a project to the site
 
