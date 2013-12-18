@@ -6,7 +6,10 @@ angular.module('crpCMSapp.controllers', []).
   }).
  
   controller('AddProjectCtrl', function($scope, ProjectServices) {
-
+    $scope.clearForm = function() {
+      event.preventDefault();
+      console.log($scope);
+    };
   }).
 
   controller('UpdateProjectCtrl', function($scope, ProjectServices) {

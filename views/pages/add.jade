@@ -1,5 +1,5 @@
 div#add(ng-controller='AddProjectCtrl')
-  form(method="post", action="/projects", name='add-form')
+  form(method="post", action="/projects", name='addForm')
     fieldset
       legend Add a project to the site
 
@@ -23,8 +23,23 @@ div#add(ng-controller='AddProjectCtrl')
       label(for="clientName") Client:
       input#clientName(type='text', name="clientName", maxlength="50", autocomplete="off", tabindex="4")
 
+
+      label(for="scope") Project Scope:
+      select#scope(name="scope")
+        option(value="0", selected="true") Select a scope
+        option(value="1") Creatve
+        option(value="2") Creative & Production
+        option(value="3") Production Design
+        option(value="4") Creative & Production Design
+        option(value="5") Production
+
       label(for="description") Project Description:
       textarea#description(rows="4", maxlength="255", type="text", name="description", tabindex="5", AUTOCOMPLETE="OFF")
 
+      label.checkbox-label(for="video") Is this a video project?
+      input(type="checkbox", name="video")
+      
+      br
+
       button#submitForm(type="submit") Add Project
-      button#clear(type="submit") Clear Form
+      button#clear(ng-click="clearForm(this)") Clear Form

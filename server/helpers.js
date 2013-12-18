@@ -20,6 +20,7 @@ exports.processPost = processPost = function(req, cb) {
     data += chunk;
   });
   req.on('end', function() {
+    console.log('a');
     cb(data);
   });
 };

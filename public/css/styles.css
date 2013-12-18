@@ -10,18 +10,20 @@ header nav ul{display:inline;margin-left:0;text-align:right;text-decoration:none
 header nav li{display:inline;padding-left:22px;}
 header nav li a{color:#fff;text-decoration:none;font-style:normal;font-weight:100;font-size:11px;letter-spacing:.5px;cursor:pointer}
 header nav li a:hover{color:#aaa}
-#wrapper{border-radius:10px;width:830px;height:540px;margin-top:70px;padding:30px;border:2px solid #fff;background-color:#ddd;box-shadow:0 3px 15px #072454;}
+#wrapper{border-radius:10px;width:830px;margin-top:70px;padding:30px;border:2px solid #fff;background-color:#ddd;box-shadow:0 3px 15px #072454;}
 #wrapper #projectListing{height:540px;width:250px;float:left;border:1px solid #999;border-radius:5px;background-color:#eee;box-shadow:inset 1px 1px 4px #bbb}
 #wrapper #form-field{float:right;width:560px;}
 #wrapper #form-field form{width:555px;}
 #wrapper #form-field form legend{font-size:25px;color:#888;padding:0 15px;letter-spacing:1px;text-align:center}
 #wrapper #form-field form label{display:block;text-align:left;color:#888;font-size:14px;margin:15px 0 5px 2px;letter-spacing:.5px}
 #wrapper #form-field form label:first-of-type{margin-top:5px}
+#wrapper #form-field form label.checkbox-label{display:inline}
 #wrapper #form-field form select{background:url("../img/down-chevron.png") no-repeat right #ccc;border:1px solid #777;font-size:13px;width:165px;color:#666;box-shadow:0;-webkit-appearance:none;padding:3px 25px 3px 10px}
+#wrapper #form-field form input[type=checkbox]{margin-left:10px}
 #wrapper #form-field form input[type=file]{text-align:left;font-size:12px}
 #wrapper #form-field form input[type=text]{color:#666;font-size:14px;width:510px;height:20px;padding:3px 8px}
 #wrapper #form-field form input:focus{outline:none;box-shadow:inset 1px 1px 3px #eee}
-#wrapper #form-field form textarea{color:#666;border:1px solid #aaa;width:510px;padding:8px;resize:none;font-size:14px;line-height:16px}
+#wrapper #form-field form textarea{color:#666;border:1px solid #aaa;width:510px;padding:8px;resize:none;font-size:14px;line-height:16px;margin-bottom:15px}
 #wrapper #form-field form textarea:focus{outline:none;box-shadow:inset 1px 1px 0 #888}
 #wrapper #form-field form button{width:100px;height:30px;margin:20px 10px 5px 0;background-color:#ccc;border:1px solid #aaa;border-radius:3px;font-size:14px;color:#666}
 #wrapper #form-field form button:hover{background-color:#ddd}

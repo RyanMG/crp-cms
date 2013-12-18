@@ -28,8 +28,27 @@ exports.get = function(req, res) {
 };
 
 exports.post = function(req, res) {
-  console.log(req);
-  //processPost(req.)
+  // console.log(req.body);
+  // var project = req.body;
+  // switch (project.projectType) {
+  //   case 1:
+  //     var projectCode = theatrical;
+  //     var projectType = Theatrical;
+      
+
+  // }
+  // // ID?
+
+  // Project.findOrCreate(
+  //     { title: project.title },
+  //     { client: project.client }),
+  //     { scope: project.scope },
+  //     { projectCode: "" }
+  //   .success(function(user, created) {
+  //     console.log(user.values);
+  //     console.log(created);
+  //   });
+  sendResponse(res, {}, 201);
 };
 
 exports.delete = function(req, res) {
