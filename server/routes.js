@@ -1,12 +1,18 @@
-var login = require('./login');
+var login = require('./controllers/login');
+var projects = require('./controllers/projects');
 
 module.exports = function(app){
   app.get('/', routes.index);
+
   app.get('/error', routes.error);
   app.get('/failed', routes.failed);
   app.get('/logout', login.logout);
+  
+  app.get('/projects', projects.get);
+
   app.get('/pages/:page', ensureAuthenticated, routes.pages);
   app.get('*', ensureAuthenticated, routes.index);
+  
   app.post('/login', login.auth);
 };
 
