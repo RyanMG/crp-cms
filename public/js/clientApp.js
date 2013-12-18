@@ -3,28 +3,25 @@
 // Declare app level module which depends on filters, and services
 
 angular.module('crpCMSapp', [
-  'crpCMSapp.controllers',
-  'crpCMSapp.filters',
-  'crpCMSapp.services',
-  'crpCMSapp.directives'
+  'crpCMSapp.controllers'
 ]).
 config(function ($routeProvider, $locationProvider) {
   $routeProvider.
     when('/add', {
       templateUrl: 'pages/add',
-      controller: 'MyCtrl1'
+      controller: 'AppCtrl'
     }).
     when('/update', {
       templateUrl: 'pages/update',
-      controller: 'MyCtrl2'
+      controller: 'AppCtrl'
     }).
     when('/remove', {
       templateUrl: 'pages/remove',
-      controller: 'MyCtrl3'
+      controller: 'AppCtrl'
     }).
     when('/reorder', {
       templateUrl: 'pages/reorder',
-      controller: 'MyCtrl4'
+      controller: 'AppCtrl'
     }).
     otherwise({
       redirectTo: '/add'
