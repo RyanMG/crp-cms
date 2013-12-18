@@ -1,0 +1,10 @@
+div#remove
+  form(method="post", action="/login")
+    fieldset
+      legend Select a project from the left to remove
+
+      label(for="title") Title To Be Removed:
+      input#title(type='text', name="projectTitle", autocomplete="off", tabindex="1")
+
+      button#submitForm(type="submit") Remove
+      button#clear(type="submit") Clear Form

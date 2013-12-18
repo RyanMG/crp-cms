@@ -1,0 +1,30 @@
+div#update
+  form(method="post", action="/login")
+    fieldset
+      legend Select a project from the left to update
+
+      label(for="type") Project Type:
+      select#type(name="projectType")
+        option(value="0", selected="true") Select a project type
+        option(value="1") Theatrical
+        option(value="2") Home Entertainment
+        option(value="3") Interactive Gaming
+        option(value="4") AV & Web
+
+      label(for="title") Project Title:
+      input#title(type='text', name="projectTitle", autocomplete="off", tabindex="1")
+
+      label(for="main-image") Main Image:
+      input#main-image(type='file', name="mainImage", size="50", maxlength="100", AUTOCOMPLETE = "OFF", tabindex="2")
+
+      label(for="full-image") Full Image:
+      input#full-image(type='file', name="fullImage", size="50", maxlength="100", AUTOCOMPLETE = "OFF", tabindex="3")
+
+      label(for="clientName") Client:
+      input#clientName(type='text', name="clientName", maxlength="50", autocomplete="off", tabindex="4")
+
+      label(for="description") Project Description:
+      textarea#description(rows="4", maxlength="255", type="text", name="description", tabindex="5", AUTOCOMPLETE="OFF")
+
+      button#submitForm(type="submit") Update
+      button#clear(type="submit") Clear Form

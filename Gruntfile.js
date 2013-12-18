@@ -16,7 +16,7 @@ module.exports = function (grunt) {
     stylus: {
       compile: {
         expand: true,
-        cwd: 'app/styles',
+        cwd: 'appResources/styles',
         src:['*.styl'],
         dest: 'public/css',
         ext: '.css'
@@ -36,17 +36,17 @@ module.exports = function (grunt) {
       js: {
         files: [
           'app.js',
-          'app/**/*.js',
+          'server/**/*.js',
           'config/*.js'
         ],
         tasks: ['develop', 'delayed-livereload']
       },
       jade: {
-        files: ['app/views/**/*.jade'],
+        files: ['views/**/*.jade'],
         options: { livereload: reloadPort }
       },
       stylus: {
-        files: ['app/styles/*.styl'],
+        files: ['appResources/styles/*.styl'],
         tasks: ['compileStyles'],
         options: { livereload: reloadPort }
       }

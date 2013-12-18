@@ -1,7 +1,7 @@
 var passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy;
     
-var config = require('../../config/config'),
+var config = require('../config/config'),
     Sequelize = require('sequelize'),
     sequelize = new Sequelize(config.database, config.username, config.password, {
       dialect: 'mysql',
@@ -43,18 +43,6 @@ passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
 
-exports.index = function(req, res) {
-  res.render('main/index');
-};
-
-exports.error = function(req, res) {
-  res.render('main/index', {message: 'An error occured. Please try again.'});
-};
-
-exports.failed = function(req, res) {
-  res.render('main/index', { message: 'Bad username or password.'});
-};
-
 exports.auth = function (req, res, fn) {
  passport.authenticate('local', function (err, user) {
    if (err || !user) {
@@ -65,7 +53,12 @@ exports.auth = function (req, res, fn) {
      if (err) {
        return fn(err);
      }
-     return res.redirect('/home');
+     return res.redirect('/add');
    });
  })(req, res, fn);
+};
+
+exports.logout = function(req, res) {
+  req.logOut();
+  res.redirect('/');
 };

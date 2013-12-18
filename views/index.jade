@@ -1,0 +1,42 @@
+extends layout
+
+block login
+  div(ng-controller='loginCtrl')
+    div.log-in-box
+      img.login-logo(src="img/crp-logo-gray.svg")
+      form(method="post", action="/login")
+        fieldset
+          legend Please Log In
+          label(for="username") Username:
+          input#username(type='text', name="username", autocomplete="off")
+          label(for="password") Password:
+          input#password(type='password', name="password")
+          button#login(type="submit") Log In
+      if message
+        p.error= message
+
+block content
+  div(ng-controller='AppCtrl')
+    header
+      div.container
+        a(href="http://www.thecrpgroup.com", target="_self")
+          img.head-logo(src="img/crp-logo.svg")
+        nav
+          ul
+            li
+              a.nav-link(href="add") ADD PROJECT
+            li
+              a.nav-link(href="update") UPDATE PROJECT
+            li
+              a.nav-link(href="remove") REMOVE PROJECT
+            li
+              a.nav-link(href="reorder") REORDER PROJECTS
+            li
+              a.nav-link(href="logout") LOGOUT
+              
+    div#wrapper.container
+
+      div#projectListing
+      
+      div#form-field(ng-view)
+
