@@ -37,6 +37,8 @@ block content
     div#wrapper.container
 
       div#projectListing
+        ul.sidebar-listing
+          li.sidebar-item(ng-repeat="project in allProjects | orderBy:'title'") {{ project.title }}
       
       div#form-field(ng-view)
 

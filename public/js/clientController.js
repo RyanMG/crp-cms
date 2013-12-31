@@ -2,7 +2,8 @@
 
 angular.module('crpCMSapp.controllers', []).
   controller('AppCtrl', function($scope, ProjectServices) {
-    $scope.projects = ProjectServices.getProjects();
+    $scope.allProjects = ProjectServices.getProjects();
+    console.log($scope);
   }).
  
   controller('AddProjectCtrl', function($scope, ProjectServices) {
