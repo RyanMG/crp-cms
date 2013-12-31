@@ -7,18 +7,19 @@ var config = require('../../config/config'),
     });
 
 var Project = sequelize.define('Project', {
-  title: {type: Sequelize.STRING},
-  client: {type: Sequelize.STRING},
-  scope: {type: Sequelize.STRING},
-  projectCode: {type: Sequelize.STRING},
-  projectType: {type: Sequelize.STRING},
-  description: {type: Sequelize.TEXT},
-  video: {type: Sequelize.BOOLEAN},
-  mainImg: {type: Sequelize.STRING},
-  fullImg: {type: Sequelize.STRING}
+  orderId: { type: Sequelize.INTEGER, allowNull: false },
+  title: { type: Sequelize.STRING, allowNull: false },
+  client: { type: Sequelize.STRING, allowNull: false },
+  scope: { type: Sequelize.STRING, allowNull: false },
+  projectCode: { type: Sequelize.STRING, allowNull: false },
+  projectType: { type: Sequelize.STRING, allowNull: false },
+  description: { type: Sequelize.TEXT, allowNull: false },
+  video: { type: Sequelize.BOOLEAN, allowNull: false },
+  mainImg: { type: Sequelize.STRING, allowNull: false },
+  fullImg: { type: Sequelize.STRING, allowNull: false }
 });
 
-sequelize.sync();
+sequelize.sync({force:true});
 
 exports.get = function(req, res) {
   Project.findAll().
@@ -28,27 +29,84 @@ exports.get = function(req, res) {
 };
 
 exports.post = function(req, res) {
-  // console.log(req.body);
-  // var project = req.body;
-  // switch (project.projectType) {
-  //   case 1:
-  //     var projectCode = theatrical;
-  //     var projectType = Theatrical;
-      
+  console.log(req.body);
+  var project = {
+    orderId: 0,
+    title: req.body.projectTitle,
+    client: req.body.clientName,
+    scope: '',
+    projectCode: '',
+    projectType: '',
+    description: req.body.description,
+    video: false,
+    mainImg: req.body.mainImage,
+    fullImg: req.body.fullImage
+  };
 
-  // }
-  // // ID?
+  switch (req.body.projectType) {
+    case '1':
+      project.projectCode = 'theatrical';
+      project.projectType = 'Theatrical';
+      break;
+    case '2':
+      project.projectCode = 'homeEnt';
+      project.projectType = 'Home Entertainment';
+      break;
+    case '3':
+      project.projectCode = 'gaming';
+      project.projectType = 'Interactive Gaming';
+      break;
+    default:
+      console.log('request project:', req.body.projectType);
+      break;
+  }
 
-  // Project.findOrCreate(
-  //     { title: project.title },
-  //     { client: project.client }),
-  //     { scope: project.scope },
-  //     { projectCode: "" }
-  //   .success(function(user, created) {
-  //     console.log(user.values);
-  //     console.log(created);
-  //   });
-  sendResponse(res, {}, 201);
+  switch (req.body.scope) {
+    case '1':
+      project.scope = 'Creative';
+      break;
+    case '2':
+      project.scope = 'Creative & Production';
+      break;
+    case '3':
+      project.scope = 'Production Design';
+      break;
+    case '4':
+      project.scope = 'Creative & Production Design';
+      break;
+    case '5':
+      project.scope = 'Production';
+      break;
+    default:
+      console.log('request scope:', req.body.scope);
+      break;
+  }
+  if (req.body.video) {
+    project.video = true;
+    project.fullImg = req.body.fullImage.split('.')[0];
+  }
+
+  Project.count().success(function(num) {
+    project.orderId = num + 1;
+    console.log(project);
+    
+    Project.find({ title: project.title }, { projectCode: project.projectCode })
+      .success(function(proj) {
+        if (proj === null) {
+          Project.build(project).save().success(function() {
+            sendResponse(res, arguments[0].dataValues.id, 201);
+          }).error(function(error) {
+            console.log(error);
+          });
+        } else {
+          sendResponse(res, 'This project already exists. Please choose update if you want to update it.', 201);
+        }
+      })
+      .error(function(error) {
+        sendResponse(res, error, 201);
+      });
+  });
+
 };
 
 exports.delete = function(req, res) {
