@@ -3,13 +3,21 @@
 angular.module('crpCMSapp.controllers', []).
   controller('AppCtrl', function($scope, ProjectServices) {
     $scope.allProjects = ProjectServices.getProjects();
-    console.log($scope);
   }).
  
   controller('AddProjectCtrl', function($scope, ProjectServices) {
+    $scope.addFormData = {};
+    
+    $scope.processForm = function() {
+      ProjectServices.addProject($scope.addFormData).then(function(result) {
+        console.log(result);
+      });
+    };
+
     $scope.clearForm = function() {
-      event.preventDefault();
-      console.log($scope);
+      $scope.addFormData = {};
+      $scope.addFormData.projectType = "0";
+      $scope.addFormData.scope = "0";
     };
   }).
 

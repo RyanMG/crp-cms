@@ -1,31 +1,31 @@
 div#add(ng-controller='AddProjectCtrl')
-  form(method="post", name='addForm')
+  form(method="post", name='addForm', novalidate)
     fieldset
       legend Add a project to the site
 
       label(for="type") Project Type:
-      select#type(name="projectType")
-        option(value="0", selected="true") Select a project type
+      select#type(name="projectType", ng-model="addFormData.projectType")
+        option(value="0", ng-selected='true') Select a project type
         option(value="1") Theatrical
         option(value="2") Home Entertainment
         option(value="3") Interactive Gaming
 
       label(for="title") Project Title:
-      input#title(type='text', name="projectTitle", autocomplete="off", tabindex="1")
+      input#title(type='text', name="projectTitle", autocomplete="off", tabindex="1", ng-model="addFormData.title")
 
       label(for="main-image") Main Image:
-      input#main-image(type='file', name="mainImage", size="50", maxlength="100", AUTOCOMPLETE = "OFF", tabindex="2")
+      input#main-image(type='file', name="mainImage", size="50", maxlength="100", AUTOCOMPLETE = "OFF", tabindex="2", ng-model="addFormData.mainImg")
 
       label(for="full-image") Full Image:
-      input#full-image(type='file', name="fullImage", size="50", maxlength="100", AUTOCOMPLETE = "OFF", tabindex="3")
+      input#full-image(type='file', name="fullImage", size="50", maxlength="100", AUTOCOMPLETE = "OFF", tabindex="3", ng-model="addFormData.fullImg")
 
       label(for="clientName") Client:
-      input#clientName(type='text', name="clientName", maxlength="50", autocomplete="off", tabindex="4")
+      input#clientName(type='text', name="clientName", maxlength="50", autocomplete="off", tabindex="4", ng-model="addFormData.client")
 
 
       label(for="scope") Project Scope:
-      select#scope(name="scope")
-        option(value="0", selected="true") Select a scope
+      select#scope(name="scope", ng-model="addFormData.scope")
+        option(value="0", ng-selected='true') Select a scope
         option(value="1") Creative
         option(value="2") Creative & Production
         option(value="3") Production Design
@@ -33,12 +33,12 @@ div#add(ng-controller='AddProjectCtrl')
         option(value="5") Production
 
       label(for="description") Project Description:
-      textarea#description(rows="4", maxlength="255", type="text", name="description", tabindex="5", AUTOCOMPLETE="OFF")
+      textarea#description(rows="4", maxlength="255", type="text", name="description", tabindex="5", AUTOCOMPLETE="OFF", ng-model="addFormData.description")
 
       label.checkbox-label(for="video") Is this a video project?
-      input(type="checkbox", name="video")
+      input(type="checkbox", name="video", ng-model="addFormData.video")
       
       br
 
-      button#submitForm(type="submit") Add Project
-      button#clear(ng-click="clearForm(this)") Clear Form
+      button#submitForm(ng-click="processForm()") Add Project
+      button#clear(ng-click="clearForm()") Clear Form

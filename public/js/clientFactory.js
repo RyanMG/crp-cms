@@ -10,6 +10,22 @@ angular.module('crpCMSapp.factories', []).
           deferred.reject(error);
         });
         return deferred.promise;
+      },
+
+      addProject: function(projectData) {
+        console.log(projectData);
+        var deferred = $q.defer();
+        $http({
+          method: 'POST',
+          url: '/projects',
+          data: projectData,
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        }).success(function(data) {
+          deferred.resolve(data);
+        }).error(function(error) {
+          deferred.reject(error);
+        });
+        return deferred.promise;
       }
 
     };
