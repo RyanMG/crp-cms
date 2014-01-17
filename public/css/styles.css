@@ -31,3 +31,5 @@ header nav li a:hover{color:#aaa}
 #wrapper #form-field form button{width:100px;height:30px;margin:20px 10px 5px 0;background-color:#ccc;border:1px solid #aaa;border-radius:3px;font-size:14px;color:#666}
 #wrapper #form-field form button:hover{background-color:#ddd}
 #wrapper #form-field form button:focus{outline:none}
+#wrapper #form-field form button:disabled{opacity:.7}
+#wrapper #form-field form button:disabled:hover{background-color:#ccc}

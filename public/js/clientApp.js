@@ -4,7 +4,8 @@
 
 angular.module('crpCMSapp', [
   'crpCMSapp.controllers',
-  'crpCMSapp.factories'
+  'crpCMSapp.factories',
+  'crpCMSapp.directives'
 ]).
   config(function ($routeProvider, $locationProvider) {
     $routeProvider.

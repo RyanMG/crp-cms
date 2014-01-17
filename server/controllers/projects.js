@@ -29,7 +29,6 @@ exports.get = function(req, res) {
 };
 
 exports.post = function(req, res) {
-  console.log(JSON.parse(req.body[0]));
   var project = {
     orderId: 0,
     title: req.body.projectTitle,

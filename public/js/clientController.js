@@ -14,6 +14,10 @@ angular.module('crpCMSapp.controllers', []).
       });
     };
 
+    $scope.isUnchanged = function() {
+      return angular.equals($scope.addFormData, {});
+    };
+    
     $scope.clearForm = function() {
       $scope.addFormData = {};
       $scope.addFormData.projectType = "0";
