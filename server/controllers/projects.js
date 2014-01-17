@@ -1,6 +1,6 @@
 var config = require('../../config/config'),
     helpers = require('../helpers'),
-    Sequelize = require('sequelize'),
+    Sequelize = require('sequelize');
     sequelize = new Sequelize(config.database, config.username, config.password, {
       dialect: 'mysql',
       port: 3306
@@ -19,7 +19,7 @@ var Project = sequelize.define('Project', {
   fullImg: { type: Sequelize.STRING, allowNull: false }
 });
 
-sequelize.sync({force:true});
+//sequelize.sync({force:true});
 
 exports.get = function(req, res) {
   Project.findAll().
@@ -29,7 +29,6 @@ exports.get = function(req, res) {
 };
 
 exports.post = function(req, res) {
-  console.log(req.body);
   var project = {
     orderId: 0,
     title: req.body.projectTitle,
@@ -88,7 +87,6 @@ exports.post = function(req, res) {
 
   Project.count().success(function(num) {
     project.orderId = num + 1;
-    console.log(project);
     
     Project.find({ title: project.title }, { projectCode: project.projectCode })
       .success(function(proj) {

@@ -1,6 +1,6 @@
 var passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy;
-    
+
 var config = require('../../config/config'),
     Sequelize = require('sequelize'),
     sequelize = new Sequelize(config.database, config.username, config.password, {
