@@ -2,7 +2,9 @@
 
 angular.module('crpCMSapp.controllers', []).
   controller('AppCtrl', function($scope, ProjectServices) {
-    $scope.allProjects = ProjectServices.getProjects();
+    ProjectServices.getProjects().then(function(data) {
+      $scope.allProjects = data;
+    });
   }).
  
   controller('AddProjectCtrl', function($scope, ProjectServices) {
@@ -19,11 +21,9 @@ angular.module('crpCMSapp.controllers', []).
     };
 
     $scope.clearForm = function() {
-      console.log('test');
-      $scope.addForm.$setPristine();
-      // $scope.addFormData = {};
-      // $scope.addFormData.projectType = "0";
-      // $scope.addFormData.scope = "0";
+      $scope.addFormData = {};
+      $scope.addFormData.projectType = "0";
+      $scope.addFormData.scope = "0";
     };
 
   }).
