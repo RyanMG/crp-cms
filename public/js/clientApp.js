@@ -3,9 +3,10 @@
 // Declare app level module which depends on filters, and services
 
 angular.module('crpCMSapp', [
+  'ngRoute',
   'crpCMSapp.controllers',
-  'crpCMSapp.factories',
-  'crpCMSapp.directives'
+  'crpCMSapp.factories'
+  //'crpCMSapp.directives'
 ]).
   config(function ($routeProvider, $locationProvider) {
     $routeProvider.

@@ -1,5 +1,5 @@
 angular.module('crpCMSapp.directives', []).
-  directive('validFile', function () {
+  directive('ngValidFile', function () {
     return {
       require: 'ngModel',
       

@@ -17,12 +17,15 @@ angular.module('crpCMSapp.controllers', []).
     $scope.isUnchanged = function() {
       return angular.equals($scope.addFormData, {});
     };
-    
+
     $scope.clearForm = function() {
-      $scope.addFormData = {};
-      $scope.addFormData.projectType = "0";
-      $scope.addFormData.scope = "0";
+      console.log('test');
+      $scope.addForm.$setPristine();
+      // $scope.addFormData = {};
+      // $scope.addFormData.projectType = "0";
+      // $scope.addFormData.scope = "0";
     };
+
   }).
 
   controller('UpdateProjectCtrl', function($scope, ProjectServices) {
