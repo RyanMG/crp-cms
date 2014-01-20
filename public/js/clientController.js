@@ -3,7 +3,16 @@
 angular.module('crpCMSapp.controllers', []).
   controller('AppCtrl', function($scope, ProjectServices) {
     ProjectServices.getProjects().then(function(data) {
-      $scope.allProjects = data;
+      $scope.theatricalProjects = {}, $scope.homeEntProjects = {}, $scope.gamingProjects = {};
+      data.forEach(function(project) {
+        if (project.projectCode === 'theatrical') {
+          $scope.theatricalProjects[project.title] = project;
+        } else if (projectType === 'homeEnt') {
+          $scope.homeEntProjects[project.title] = project;
+        } else {
+          $scope.gamingProjects[project.title] = project;
+        }
+      });
     });
 
     $scope.$on('addProject', function() {

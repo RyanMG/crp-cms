@@ -11,9 +11,10 @@ header nav li{display:inline;padding-left:22px;}
 header nav li a{color:#fff;text-decoration:none;font-style:normal;font-weight:100;font-size:11px;letter-spacing:.5px;cursor:pointer}
 header nav li a:hover{color:#aaa}
 #wrapper{border-radius:10px;width:830px;margin-top:70px;padding:30px;border:2px solid #fff;background-color:#ddd;box-shadow:0 3px 15px #072454;}
-#wrapper #projectListing{height:540px;width:250px;float:left;border:1px solid #999;border-radius:5px;background-color:#eee;box-shadow:inset 1px 1px 4px #bbb;}
+#wrapper #projectListing{height:540px;width:250px;float:left;border:1px solid #999;border-radius:5px;background-color:#eee;box-shadow:inset 1px 1px 4px #bbb;overflow:auto;}
 #wrapper #projectListing .sidebar-listing{padding:15px;margin:0;}
-#wrapper #projectListing .sidebar-listing .sidebar-item{list-style:none;font-size:12px;color:#888}
+#wrapper #projectListing .sidebar-listing .sidebar-header{font-size:14px;list-style:none;color:#666;font-weight:800;text-decoration:underline;margin-top:5px}
+#wrapper #projectListing .sidebar-listing .sidebar-item{list-style:none;font-size:12px;color:#888;margin:2px 0}
 #wrapper #projectListing .sidebar-listing .sidebar-item:hover{color:#666;cursor:pointer}
 #wrapper #form-field{float:right;width:560px;}
 #wrapper #form-field form{width:555px;}
