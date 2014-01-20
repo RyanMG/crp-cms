@@ -38,7 +38,6 @@ div#add(ng-controller='AddProjectCtrl')
       label.checkbox-label(for="video") Is this a video project?
       input(type="checkbox", name="video", ng-model="addFormData.video")
       
-
       br
 
       button#submitForm(ng-click="processForm()", ng-disabled="addForm.$invalid || isUnchanged(user)") Add Project

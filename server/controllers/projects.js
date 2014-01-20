@@ -19,6 +19,7 @@ var Project = sequelize.define('Project', {
   fullImg: { type: Sequelize.STRING, allowNull: false }
 });
 
+// Uncomment to reset collection, then recomment
 //sequelize.sync({force:true});
 
 exports.get = function(req, res) {
@@ -29,6 +30,7 @@ exports.get = function(req, res) {
 };
 
 exports.post = function(req, res) {
+  console.log(req.body);
   var project = {
     orderId: 0,
     title: req.body.projectTitle,
