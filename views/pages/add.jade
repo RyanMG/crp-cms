@@ -42,3 +42,4 @@ div#add(ng-controller='AddProjectCtrl')
 
       button#submitForm(ng-click="processForm()", ng-disabled="addForm.$invalid || isUnchanged(user)") Add Project
       button#clear(ng-click="clearForm()") Clear Form
+      p(ng-class="{ true: 'errorListing', false: ''}[isError]") {{ error }}

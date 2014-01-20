@@ -18,8 +18,12 @@ angular.module('crpCMSapp.controllers', []).
     
     $scope.processForm = function() {
       ProjectServices.addProject($scope.addFormData).then(function(result) {
+        $scope.clearForm();
         if (!isNaN(parseInt(result, 10))) {
           $scope.$emit('addProject');
+        } else {
+          $scope.error = result;
+          $scope.isError = true;
         }
       });
     };
