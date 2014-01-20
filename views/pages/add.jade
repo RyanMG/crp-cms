@@ -14,14 +14,14 @@ div#add(ng-controller='AddProjectCtrl')
       input#title(type='text', name="projectTitle", autocomplete="off", tabindex="1", ng-model="addFormData.title", required)
 
       label(for="clientName") Client:
-      input#clientName(type='text', name="clientName", maxlength="50", autocomplete="off", tabindex="4", ng-model="addFormData.client", required)
+      input#clientName(type='text', name="clientName", maxlength="50", autocomplete="off", tabindex="2", ng-model="addFormData.client", required)
 
       div#fuckthis
         label(for="main-image") Main Image:
-        input#main-image(type='file', name="mainImage", size="50", maxlength="100", AUTOCOMPLETE = "OFF", tabindex="2", ng-model="addFormData.mainImg", ng-valid-file, required)
+        input#main-image(type='file', name="mainImage", size="50", maxlength="100", AUTOCOMPLETE = "OFF", ng-model="addFormData.mainImg", ng-valid-file, required)
 
         label(for="full-image") Full Image:
-        input#full-image(type='file', name="fullImage", size="50", maxlength="100", AUTOCOMPLETE = "OFF", tabindex="3", ng-model="addFormData.fullImg", ng-valid-file, required)
+        input#full-image(type='file', name="fullImage", size="50", maxlength="100", AUTOCOMPLETE = "OFF", ng-model="addFormData.fullImg", ng-valid-file, required)
       
       label(for="scope") Project Scope:
       select#scope(name="scope", ng-model="addFormData.scope", required)
@@ -33,7 +33,7 @@ div#add(ng-controller='AddProjectCtrl')
         option(value="5") Production
 
       label(for="description") Project Description:
-      textarea#description(rows="4", maxlength="255", type="text", name="description", tabindex="5", AUTOCOMPLETE="OFF", ng-model="addFormData.description", required)
+      textarea#description(rows="4", maxlength="255", type="text", name="description", tabindex="3", AUTOCOMPLETE="OFF", ng-model="addFormData.description", required)
 
       label.checkbox-label(for="video") Is this a video project?
       input(type="checkbox", name="video", ng-model="addFormData.video")

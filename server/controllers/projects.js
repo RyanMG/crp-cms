@@ -30,18 +30,17 @@ exports.get = function(req, res) {
 };
 
 exports.post = function(req, res) {
-  console.log(req.body);
   var project = {
     orderId: 0,
-    title: req.body.projectTitle,
-    client: req.body.clientName,
+    title: req.body.title,
+    client: req.body.client,
     scope: '',
     projectCode: '',
     projectType: '',
     description: req.body.description,
     video: false,
-    mainImg: req.body.mainImage,
-    fullImg: req.body.fullImage
+    mainImg: req.body.mainImg.split('\\')[2],
+    fullImg: req.body.fullImg.split('\\')[2]
   };
 
   switch (req.body.projectType) {
@@ -89,9 +88,10 @@ exports.post = function(req, res) {
 
   Project.count().success(function(num) {
     project.orderId = num + 1;
-    
-    Project.find({ title: project.title }, { projectCode: project.projectCode })
+    console.log('final:', project);
+    Project.find({ where: { title: project.title, projectCode: project.projectCode } })
       .success(function(proj) {
+        console.log('Found:', proj);
         if (proj === null) {
           Project.build(project).save().success(function() {
             sendResponse(res, arguments[0].dataValues.id, 201);

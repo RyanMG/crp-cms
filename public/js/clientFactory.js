@@ -13,12 +13,12 @@ angular.module('crpCMSapp.factories', []).
       },
 
       addProject: function(projectData) {
-        console.log(projectData);
+        data = this.parsePostData(projectData);
         var deferred = $q.defer();
         $http({
           method: 'POST',
           url: '/projects',
-          data: projectData,
+          data: data,
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         }).success(function(data) {
           deferred.resolve(data);
@@ -26,6 +26,18 @@ angular.module('crpCMSapp.factories', []).
           deferred.reject(error);
         });
         return deferred.promise;
+      },
+
+      parsePostData: function(data) {
+        var parsed = [],
+            prop;
+  
+        for ( prop in data ) {
+          if(data.hasOwnProperty(prop)) {
+            parsed.push(encodeURIComponent(prop) + '=' + encodeURIComponent(data[prop]));
+          }
+        }
+        return parsed.join( "&" );
       }
 
     };
