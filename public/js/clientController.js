@@ -5,6 +5,12 @@ angular.module('crpCMSapp.controllers', []).
     ProjectServices.getProjects().then(function(data) {
       $scope.allProjects = data;
     });
+
+    $scope.$on('addProject', function() {
+      ProjectServices.getProjects().then(function(data) {
+        $scope.allProjects = data;
+      });
+    });
   }).
  
   controller('AddProjectCtrl', function($scope, ProjectServices) {
@@ -12,7 +18,9 @@ angular.module('crpCMSapp.controllers', []).
     
     $scope.processForm = function() {
       ProjectServices.addProject($scope.addFormData).then(function(result) {
-        console.log(result);
+        if (!isNaN(parseInt(result, 10))) {
+          $scope.$emit('addProject');
+        }
       });
     };
 
