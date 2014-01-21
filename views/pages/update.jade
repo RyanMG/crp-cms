@@ -1,5 +1,5 @@
 div#update(ng-controller="UpdateProjectCtrl")
-  form(method="post", action="/login")
+  form(method="post", name='updateForm', novalidate)
     fieldset
       legend Select a project from the left to update
 
@@ -14,17 +14,34 @@ div#update(ng-controller="UpdateProjectCtrl")
       label(for="title") Project Title:
       input#title(type='text', name="projectTitle", autocomplete="off", tabindex="1")
 
+      label(for="clientName") Client:
+      input#clientName(type='text', name="clientName", maxlength="50", autocomplete="off", tabindex="4")
+
       label(for="main-image") Main Image:
       input#main-image(type='file', name="mainImage", size="50", maxlength="100", AUTOCOMPLETE = "OFF", tabindex="2")
 
       label(for="full-image") Full Image:
       input#full-image(type='file', name="fullImage", size="50", maxlength="100", AUTOCOMPLETE = "OFF", tabindex="3")
 
-      label(for="clientName") Client:
-      input#clientName(type='text', name="clientName", maxlength="50", autocomplete="off", tabindex="4")
+      label(for="scope") Project Scope:
+      select#scope(name="scope", ng-model="addFormData.scope", required)
+        option(value="0", ng-selected='true') Select a scope
+        option(value="1") Creative
+        option(value="2") Creative & Production
+        option(value="3") Production Design
+        option(value="4") Creative & Production Design
+        option(value="5") Production
 
       label(for="description") Project Description:
       textarea#description(rows="4", maxlength="255", type="text", name="description", tabindex="5", AUTOCOMPLETE="OFF")
 
+      label.checkbox-label(for="video") Is this a video project?
+      input(type="checkbox", name="video", ng-model="addFormData.video")
+
+      br
+
       button#submitForm(type="submit") Update
       button#clear(type="submit") Clear Form
+
+
+

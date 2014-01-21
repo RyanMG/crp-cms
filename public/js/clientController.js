@@ -4,39 +4,30 @@ angular.module('crpCMSapp.controllers', []).
   
   controller('AppCtrl', function($scope, $location, ProjectServices) {
   
-    ProjectServices.getProjects().then(function(data) {
+    var parseSideBar = function(data) {
       $scope.theatricalProjects = {}, $scope.homeEntProjects = {}, $scope.gamingProjects = {};
       data.forEach(function(project) {
         if (project.projectCode === 'theatrical') {
           $scope.theatricalProjects[project.title] = project;
-        } else if (projectType === 'homeEnt') {
+        } else if (project.projectCode === 'homeEnt') {
           $scope.homeEntProjects[project.title] = project;
         } else {
           $scope.gamingProjects[project.title] = project;
         }
       });
-    });
+    };
+    
+    ProjectServices.getProjects().then(parseSideBar);
     
     $scope.loadProject = function(project) {
       $location.path('/update');
 
     };
- 
 
     $scope.$on('addProject', function() {
-      ProjectServices.getProjects().then(function(data) {
-        $scope.theatricalProjects = {}, $scope.homeEntProjects = {}, $scope.gamingProjects = {};
-        data.forEach(function(project) {
-          if (project.projectCode === 'theatrical') {
-            $scope.theatricalProjects[project.title] = project;
-          } else if (projectType === 'homeEnt') {
-            $scope.homeEntProjects[project.title] = project;
-          } else {
-            $scope.gamingProjects[project.title] = project;
-          }
-        });
-      });
+      ProjectServices.getProjects().then(parseSideBar);
     });
+
 
   }).
  
