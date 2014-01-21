@@ -31,7 +31,6 @@ angular.module('crpCMSapp.factories', []).
       parsePostData: function(data) {
         var parsed = [],
             prop;
-  
         for ( prop in data ) {
           if(data.hasOwnProperty(prop)) {
             parsed.push(encodeURIComponent(prop) + '=' + encodeURIComponent(data[prop]));

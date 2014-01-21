@@ -39,10 +39,10 @@ block content
       div#projectListing
         ul.sidebar-listing
           li.sidebar-header Theatrical Projects
-          li.sidebar-item(ng-repeat="project in theatricalProjects | orderBy:'title'") {{ project.title }}
+          li.sidebar-item(ng-click="loadProject($event)", ng-repeat="project in theatricalProjects | orderBy:'title'") {{ project.title }}
           li.sidebar-header Home Entertainment Projects
-          li.sidebar-item(ng-repeat="project in homeEntProjects | orderBy:'title'") {{ project.title }}
+          li.sidebar-item(ng-click="loadProject()", ng-repeat="project in homeEntProjects | orderBy:'title'") {{ project.title }}
           li.sidebar-header Interactive Gaming Projects
-          li.sidebar-item(ng-repeat="project in gamingProjects | orderBy:'title'") {{ project.title }}
+          li.sidebar-item(ng-click="loadProject()", ng-repeat="project in gamingProjects | orderBy:'title'") {{ project.title }}
       div#form-field(ng-view)
 

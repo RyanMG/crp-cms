@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('crpCMSapp.controllers', []).
+  
   controller('AppCtrl', function($scope, ProjectServices) {
+  
     ProjectServices.getProjects().then(function(data) {
       $scope.theatricalProjects = {}, $scope.homeEntProjects = {}, $scope.gamingProjects = {};
       data.forEach(function(project) {
@@ -14,12 +16,27 @@ angular.module('crpCMSapp.controllers', []).
         }
       });
     });
+    
+    $scope.loadProject = function($event) {
+      console.log($event);
+    };
+ 
 
     $scope.$on('addProject', function() {
       ProjectServices.getProjects().then(function(data) {
-        $scope.allProjects = data;
+        $scope.theatricalProjects = {}, $scope.homeEntProjects = {}, $scope.gamingProjects = {};
+        data.forEach(function(project) {
+          if (project.projectCode === 'theatrical') {
+            $scope.theatricalProjects[project.title] = project;
+          } else if (projectType === 'homeEnt') {
+            $scope.homeEntProjects[project.title] = project;
+          } else {
+            $scope.gamingProjects[project.title] = project;
+          }
+        });
       });
     });
+
   }).
  
   controller('AddProjectCtrl', function($scope, ProjectServices) {
