@@ -2,7 +2,7 @@
 
 angular.module('crpCMSapp.controllers', []).
   
-  controller('AppCtrl', function($scope, ProjectServices) {
+  controller('AppCtrl', function($scope, $location, ProjectServices) {
   
     ProjectServices.getProjects().then(function(data) {
       $scope.theatricalProjects = {}, $scope.homeEntProjects = {}, $scope.gamingProjects = {};
@@ -17,8 +17,9 @@ angular.module('crpCMSapp.controllers', []).
       });
     });
     
-    $scope.loadProject = function($event) {
-      console.log($event);
+    $scope.loadProject = function(project) {
+      $location.path('/update');
+
     };
  
 
