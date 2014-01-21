@@ -4,27 +4,27 @@ div#update(ng-controller="UpdateProjectCtrl")
       legend Select a project from the left to update
 
       label(for="type") Project Type:
-      select#type(name="projectType")
-        option(value="0", selected="true") Select a project type
+      select#type(name="projectType", ng-model="updateFormData.projectType")
+        option(value="0", ng-selected='true') Select a project type
         option(value="1") Theatrical
         option(value="2") Home Entertainment
         option(value="3") Interactive Gaming
         option(value="4") AV & Web
 
       label(for="title") Project Title:
-      input#title(type='text', name="projectTitle", autocomplete="off", tabindex="1")
+      input#title(type='text', name="projectTitle", autocomplete="off", tabindex="1",  ng-model="updateFormData.title")
 
       label(for="clientName") Client:
-      input#clientName(type='text', name="clientName", maxlength="50", autocomplete="off", tabindex="4")
+      input#clientName(type='text', name="clientName", maxlength="50", autocomplete="off", tabindex="2", ng-model="updateFormData.client")
 
       label(for="main-image") Main Image:
-      input#main-image(type='file', name="mainImage", size="50", maxlength="100", AUTOCOMPLETE = "OFF", tabindex="2")
+      input#main-image(type='file', name="mainImage", size="50", maxlength="100", AUTOCOMPLETE = "OFF", ng-model="updateFormData.mainImg")
 
       label(for="full-image") Full Image:
-      input#full-image(type='file', name="fullImage", size="50", maxlength="100", AUTOCOMPLETE = "OFF", tabindex="3")
+      input#full-image(type='file', name="fullImage", size="50", maxlength="100", AUTOCOMPLETE = "OFF", ng-model="updateFormData.fullImg")
 
       label(for="scope") Project Scope:
-      select#scope(name="scope", ng-model="addFormData.scope", required)
+      select#scope(name="scope", ng-model="updateFormData.scope")
         option(value="0", ng-selected='true') Select a scope
         option(value="1") Creative
         option(value="2") Creative & Production
@@ -33,7 +33,7 @@ div#update(ng-controller="UpdateProjectCtrl")
         option(value="5") Production
 
       label(for="description") Project Description:
-      textarea#description(rows="4", maxlength="255", type="text", name="description", tabindex="5", AUTOCOMPLETE="OFF")
+      textarea#description(rows="4", maxlength="255", type="text", name="description", tabindex="3", AUTOCOMPLETE="OFF", ng-model="updateFormData.description")
 
       label.checkbox-label(for="video") Is this a video project?
       input(type="checkbox", name="video", ng-model="addFormData.video")
