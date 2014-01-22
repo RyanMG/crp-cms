@@ -5,7 +5,7 @@ angular.module('crpCMSapp.controllers', []).
   //
   //  PARENT CONTROLLER
   //
-  controller('AppCtrl', function($scope, $location, ProjectServices) {
+  controller('AppCtrl', function($scope, $location, $timeout, ProjectServices) {
   
     var parseSideBar = function(data) {
       $scope.theatricalProjects = {}, $scope.homeEntProjects = {}, $scope.gamingProjects = {};
@@ -22,9 +22,12 @@ angular.module('crpCMSapp.controllers', []).
     
     ProjectServices.getProjects().then(parseSideBar);
     
+
     $scope.loadProject = function(project) {
       $location.path('/update');
-      $scope.$broadcast('updateProject', project);
+      $timeout(function() {
+        $scope.$broadcast('updateProject', project);
+      }, 100);
     };
 
     $scope.$on('addProject', function() {
