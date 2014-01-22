@@ -21,8 +21,9 @@
     margin 0
 
     li.reorder-item
+      float left
       height 80px
-      width 80px
+      width 93px
       padding 10px
       margin-right 20px
       margin-bottom 20px
@@ -35,3 +36,11 @@
         margin 0 0 5px 0
         font-size 10px
         color #555
+
+    li.reorder-item:nth-child(4n)
+      margin-right 0
+
+.wrapper-box:after
+  content ""
+  display block
+  clear both
