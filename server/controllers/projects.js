@@ -88,10 +88,8 @@ exports.post = function(req, res) {
 
   Project.count().success(function(num) {
     project.orderId = num + 1;
-    console.log('final:', project);
     Project.find({ where: { title: project.title, projectCode: project.projectCode } })
       .success(function(proj) {
-        console.log('Found:', proj);
         if (proj === null) {
           Project.build(project).save().success(function() {
             sendResponse(res, arguments[0].dataValues.id, 201);
@@ -110,7 +108,15 @@ exports.post = function(req, res) {
 };
 
 exports.delete = function(req, res) {
-  console.log(req);
+  Project.find({ where: {title: req.body.title, projectType: req.body.projectType } })
+    .success(function(project) {
+      project.destroy().success(function() {
+        sendResponse(res, 'removed', 204);
+      }).error(function(err) {
+        console.log(err);
+        sendResponse(res, err, 204);
+      });
+    });
 };
 
 exports.put = function(req, res) {

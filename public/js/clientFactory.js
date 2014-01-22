@@ -13,10 +13,26 @@ angular.module('crpCMSapp.factories', []).
       },
 
       addProject: function(projectData) {
-        data = this.parsePostData(projectData);
+        var data = this.parsePostData(projectData);
         var deferred = $q.defer();
         $http({
           method: 'POST',
+          url: '/projects',
+          data: data,
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        }).success(function(data) {
+          deferred.resolve(data);
+        }).error(function(error) {
+          deferred.reject(error);
+        });
+        return deferred.promise;
+      },
+
+      removeProject: function(title, type) {
+        var data = this.parsePostData({ title: title, projectType: type });
+        var deferred = $q.defer();
+        $http({
+          method: 'DELETE',
           url: '/projects',
           data: data,
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }

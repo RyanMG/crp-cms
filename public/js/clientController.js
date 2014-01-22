@@ -158,7 +158,8 @@ angular.module('crpCMSapp.controllers', []).
 
     $scope.removeSelected = function() {
       ProjectServices.removeProject($scope.removeFormData, $scope.currentProjectType).then(function(data) {
-        console.log(data);
+        $scope.clearForm();
+        $scope.$emit('addProject');
       });
     }
 
