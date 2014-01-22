@@ -9,10 +9,9 @@ div#update(ng-controller="UpdateProjectCtrl")
         option(value="1") Theatrical
         option(value="2") Home Entertainment
         option(value="3") Interactive Gaming
-        option(value="4") AV & Web
 
       label(for="title") Project Title:
-      input#title(type='text', name="projectTitle", autocomplete="off", tabindex="1",  ng-model="updateFormData.title")
+      input#title(type='text', name="projectTitle", autocomplete="off", tabindex="1", ng-model="updateFormData.title")
 
       label(for="clientName") Client:
       input#clientName(type='text', name="clientName", maxlength="50", autocomplete="off", tabindex="2", ng-model="updateFormData.client")
@@ -36,7 +35,7 @@ div#update(ng-controller="UpdateProjectCtrl")
       textarea#description(rows="4", maxlength="255", type="text", name="description", tabindex="3", AUTOCOMPLETE="OFF", ng-model="updateFormData.description")
 
       label.checkbox-label(for="video") Is this a video project?
-      input(type="checkbox", name="video", ng-model="addFormData.video")
+      input(type="checkbox", name="video", ng-model="updateFormData.video")
 
       br
 

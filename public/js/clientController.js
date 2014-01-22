@@ -69,14 +69,49 @@ angular.module('crpCMSapp.controllers', []).
   //  UPDATE PROJECTS CONTROLLER
   //
   controller('UpdateProjectCtrl', function($scope, ProjectServices) {
+    $scope.updateFormData = {};
 
     $scope.$on('updateProject', function(event, project) {
-      console.log(project);
-      console.log($scope);
       $scope.updateFormData.title = project.title;
       $scope.updateFormData.client = project.client;
       $scope.updateFormData.description = project.description;
-      $scope.updateFormData.scope = project.scope;
+      
+      if (project.video) {
+        $scope.updateFormData.video = true;
+        $scope.updateForm.video.$modelValue = true;
+        $scope.updateForm.video.$setViewValue(true);
+        $scope.updateForm.video.$render();
+      }
+
+      switch (project.projectType) {
+        case 'Theatrical':
+          $scope.updateFormData.projectType = '1';
+          break;
+        case 'Home Entertainment':
+          $scope.updateFormData.projectType = '2';
+          break;
+        case 'Interactive Gaming':
+          $scope.updateFormData.projectType = '3';
+          break;
+      }
+
+      switch (project.scope) {
+        case 'Creative':
+          $scope.updateFormData.scope = '1';
+          break;
+        case 'Creative & Production':
+          $scope.updateFormData.scope = '2';
+          break;
+        case 'Production Design':
+          $scope.updateFormData.scope = '3';
+          break;
+        case 'Creative & Production Design':
+          $scope.updateFormData.scope = '4';
+          break;
+        case 'Production':
+          $scope.updateFormData.scope = '5';
+          break;
+      }
     });
   
   }).
