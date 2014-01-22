@@ -108,7 +108,7 @@ exports.post = function(req, res) {
 };
 
 exports.delete = function(req, res) {
-  Project.find({ where: {title: req.body.title, projectType: req.body.projectType } })
+  Project.find(req.body.id)
     .success(function(project) {
       project.destroy().success(function() {
         sendResponse(res, 'removed', 204);
@@ -120,5 +120,18 @@ exports.delete = function(req, res) {
 };
 
 exports.put = function(req, res) {
-  console.log(req);
+  console.log('Request body:', req.body);
+  Project.find(req.body.id).success(function(project) {
+    if (project) {
+      project.updateAttributes(req.body).success(function() {
+        sendResponse(res, 'Updated', 200);
+      }).error(function(err) {
+        console.log(err);
+        sendResponse(res, error, 200);
+      });
+    } else {
+      console.log('No project found');
+      sendResponse(res, '', 200);
+    }
+  });
 };

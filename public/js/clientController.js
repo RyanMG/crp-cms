@@ -79,6 +79,7 @@ angular.module('crpCMSapp.controllers', []).
     $scope.updateFormData = {};
 
     $scope.$on('updateProject', function(event, project) {
+      $scope.updateFormData.id = project.id;
       $scope.updateFormData.title = project.title;
       $scope.updateFormData.client = project.client;
       $scope.updateFormData.description = project.description;
@@ -121,7 +122,10 @@ angular.module('crpCMSapp.controllers', []).
           $scope.updateFormData.scope = '5';
           break;
       }
-      $scope.tempFormValues = $scope.updateFormData;
+      $scope.tempFormValues = {};
+      for (var key in $scope.updateFormData) {
+        $scope.tempFormValues[key] = $scope.updateFormData[key];
+      }
     });
   
     $scope.clearForm = function() {
@@ -131,7 +135,18 @@ angular.module('crpCMSapp.controllers', []).
     };
 
     $scope.checkUpdates = function() {
-      console.log($scope.updateFormData);
+      var patchData = {};
+      patchData.id = $scope.tempFormValues.id;
+      var formData = $scope.updateFormData;
+      for (var key in formData) {
+        if (formData[key] !== $scope.tempFormValues[key]) {
+          patchData[key] = formData[key];
+        }
+      }
+      ProjectServices.updateProject(patchData).then(function(result) {
+        $scope.clearForm();
+        $scope.$emit('addProject');
+      });
     };
   }).
 
@@ -140,16 +155,16 @@ angular.module('crpCMSapp.controllers', []).
   //
   controller('RemoveProjectCtrl', function($scope, ProjectServices) {
     $scope.removeFormData = "";
-    $scope.currentProjectType = "";
+    $scope.currentProjectId = "";
 
     $scope.$on('removeProject', function(event, project) {
       $scope.removeFormData = project.title;
-      $scope.currentProjectType = project.projectType;
+      $scope.currentProjectId = project.id;
     });
 
     $scope.clearForm = function() {
       $scope.removeFormData = "";
-      $scope.currentProjectType = "";
+      $scope.currentProjectId = "";
     };
 
     $scope.hasValue = function() {
@@ -157,7 +172,7 @@ angular.module('crpCMSapp.controllers', []).
     };
 
     $scope.removeSelected = function() {
-      ProjectServices.removeProject($scope.removeFormData, $scope.currentProjectType).then(function(data) {
+      ProjectServices.removeProject($scope.removeFormData, $scope.currentProjectId).then(function(data) {
         $scope.clearForm();
         $scope.$emit('addProject');
       });

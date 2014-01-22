@@ -28,8 +28,8 @@ angular.module('crpCMSapp.factories', []).
         return deferred.promise;
       },
 
-      removeProject: function(title, type) {
-        var data = this.parsePostData({ title: title, projectType: type });
+      removeProject: function(title, id) {
+        var data = this.parsePostData({ title: title, id: id });
         var deferred = $q.defer();
         $http({
           method: 'DELETE',
@@ -39,6 +39,22 @@ angular.module('crpCMSapp.factories', []).
         }).success(function(data) {
           deferred.resolve(data);
         }).error(function(error) {
+          deferred.reject(error);
+        });
+        return deferred.promise;
+      },
+
+      updateProject: function(patchData) {
+        var data = this.parsePostData(patchData);
+        var deferred = $q.defer();
+        $http({
+          method: 'PUT',
+          url: '/projects',
+          data: data,
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        }).success(function(data) {
+          deferred.resolve(data);
+        }).error(function(data) {
           deferred.reject(error);
         });
         return deferred.promise;
