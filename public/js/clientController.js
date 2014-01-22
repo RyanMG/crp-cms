@@ -140,18 +140,27 @@ angular.module('crpCMSapp.controllers', []).
   //
   controller('RemoveProjectCtrl', function($scope, ProjectServices) {
     $scope.removeFormData = "";
+    $scope.currentProjectType = "";
 
     $scope.$on('removeProject', function(event, project) {
       $scope.removeFormData = project.title;
+      $scope.currentProjectType = project.projectType;
     });
 
     $scope.clearForm = function() {
       $scope.removeFormData = "";
+      $scope.currentProjectType = "";
     };
 
     $scope.hasValue = function() {
       return angular.equals($scope.removeFormData.title, "");
     };
+
+    $scope.removeSelected = function() {
+      ProjectServices.removeProject($scope.removeFormData, $scope.currentProjectType).then(function(data) {
+        console.log(data);
+      });
+    }
 
   }).
 
