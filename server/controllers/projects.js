@@ -83,7 +83,7 @@ exports.post = function(req, res) {
   }
   if (req.body.video) {
     project.video = true;
-    project.fullImg = req.body.fullImage.split('.')[0];
+    project.fullImg = req.body.fullImg.split('.')[0];
   }
 
   Project.count().success(function(num) {
