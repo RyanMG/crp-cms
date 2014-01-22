@@ -185,6 +185,10 @@ angular.module('crpCMSapp.controllers', []).
   //
   controller('ReorderProjectCtrl', function($scope, ProjectServices) {
 
+    ProjectServices.getProjects().then(function(data) {
+      $scope.allProjects = data;
+    });
+
   }).
 
   //

@@ -1,2 +1,5 @@
 .wrapper-box{margin-top:15px;width:100%;min-height:100px;background-color:transparent;border:1px solid #aaa;}
-.wrapper-box h1{color:#999;padding:0 20px 0 20px;margin:-18px 90px 0 90px;background-color:#ddd;width:300px}
+.wrapper-box h1{color:#888;padding:0 5px 0 5px;margin:-18px 0 0 140px;background-color:#ddd;width:260px;font-weight:500;font-size:25px;letter-spacing:1px;text-align:center}
+.wrapper-box ul.reorder-listing{padding:20px;margin:0;}
+.wrapper-box ul.reorder-listing li.reorder-item{height:80px;width:80px;padding:10px;margin-right:20px;margin-bottom:20px;list-style:none;background-color:#ccc;border:1px solid #888;display:inline-block;}
+.wrapper-box ul.reorder-listing li.reorder-item p{margin:0 0 5px 0;font-size:10px;color:#555}

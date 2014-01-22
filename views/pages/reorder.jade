@@ -1,3 +1,8 @@
 div#reorder(ng-controller="ReorderProjectCtrl")
   div.wrapper-box
     h1 Reorder project list
+    ul.reorder-listing
+      li.reorder-item(ng-repeat="project in allProjects | orderBy:'orderId'")
+        p {{ project.title }}
+        hr
+        p {{ project.projectType }} Project

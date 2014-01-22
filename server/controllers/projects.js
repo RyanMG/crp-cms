@@ -120,7 +120,6 @@ exports.delete = function(req, res) {
 };
 
 exports.put = function(req, res) {
-  console.log('Request body:', req.body);
   Project.find(req.body.id).success(function(project) {
     if (project) {
       project.updateAttributes(req.body).success(function() {
