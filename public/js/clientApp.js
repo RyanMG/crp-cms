@@ -4,6 +4,7 @@
 
 angular.module('crpCMSapp', [
   'ngRoute',
+  'ui',
   'crpCMSapp.controllers',
   'crpCMSapp.factories',
   'crpCMSapp.directives'
