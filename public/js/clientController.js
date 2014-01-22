@@ -72,6 +72,7 @@ angular.module('crpCMSapp.controllers', []).
     $scope.updateFormData = {};
 
     $scope.$on('updateProject', function(event, project) {
+      console.log($scope.updateFormData);
       $scope.updateFormData.title = project.title;
       $scope.updateFormData.client = project.client;
       $scope.updateFormData.description = project.description;
@@ -81,6 +82,8 @@ angular.module('crpCMSapp.controllers', []).
         $scope.updateForm.video.$modelValue = true;
         $scope.updateForm.video.$setViewValue(true);
         $scope.updateForm.video.$render();
+      } else {
+        $scope.updateFormData.video = false;
       }
 
       switch (project.projectType) {
@@ -112,8 +115,18 @@ angular.module('crpCMSapp.controllers', []).
           $scope.updateFormData.scope = '5';
           break;
       }
+      $scope.tempFormValues = $scope.updateFormData;
     });
   
+    $scope.clearForm = function() {
+      $scope.updateFormData = {};
+      $scope.updateFormData.projectType = "0";
+      $scope.updateFormData.scope = "0";
+    };
+
+    $scope.checkUpdates = function() {
+      console.log($scope.updateFormData);
+    };
   }).
 
   //
