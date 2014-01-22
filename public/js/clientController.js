@@ -24,10 +24,14 @@ angular.module('crpCMSapp.controllers', []).
     
 
     $scope.loadProject = function(project) {
-      $location.path('/update');
-      $timeout(function() {
-        $scope.$broadcast('updateProject', project);
-      }, 100);
+      if ($location.$$path === '/remove') {
+        $scope.$broadcast('removeProject', project);
+      } else {
+        $location.path('/update');
+        $timeout(function() {
+          $scope.$broadcast('updateProject', project);
+        }, 100);
+      }
     };
 
     $scope.$on('addProject', function() {
@@ -75,7 +79,6 @@ angular.module('crpCMSapp.controllers', []).
     $scope.updateFormData = {};
 
     $scope.$on('updateProject', function(event, project) {
-      console.log($scope.updateFormData);
       $scope.updateFormData.title = project.title;
       $scope.updateFormData.client = project.client;
       $scope.updateFormData.description = project.description;
@@ -136,6 +139,19 @@ angular.module('crpCMSapp.controllers', []).
   //  REMOVE PROJECTS CONTROLLER
   //
   controller('RemoveProjectCtrl', function($scope, ProjectServices) {
+    $scope.removeFormData = "";
+
+    $scope.$on('removeProject', function(event, project) {
+      $scope.removeFormData = project.title;
+    });
+
+    $scope.clearForm = function() {
+      $scope.removeFormData = "";
+    };
+
+    $scope.hasValue = function() {
+      return angular.equals($scope.removeFormData.title, "");
+    };
 
   }).
 

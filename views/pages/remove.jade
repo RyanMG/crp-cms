@@ -1,10 +1,10 @@
 div#remove(ng-controller="RemoveProjectCtrl")
-  form(method="post", action="/login")
+  form(method="post", name='removeForm', novalidate)
     fieldset
       legend Select a project from the left to remove
 
       label(for="title") Title To Be Removed:
-      input#title(type='text', name="projectTitle", autocomplete="off", tabindex="1")
+      input#title(type='text', name="projectTitle", autocomplete="off", tabindex="1", ng-model="removeFormData", required)
 
-      button#submitForm(type="submit") Remove
-      button#clear(type="submit") Clear Form
+      button#submitForm(ng-click='removeSelected()', , ng-disabled="removeForm.$invalid || hasValue()") Remove
+      button#clear(ng-click="clearForm()") Clear Form
