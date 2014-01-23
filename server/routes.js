@@ -12,6 +12,7 @@ module.exports = function(app){
   app.post('/projects', projects.post);
   app.delete('/projects', projects.delete);
   app.put('/projects', projects.put);
+  app.patch('/projects', projects.patch);
 
   app.get('/pages/:page', ensureAuthenticated, routes.pages);
   app.get('*', ensureAuthenticated, routes.index);

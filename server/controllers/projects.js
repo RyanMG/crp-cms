@@ -119,6 +119,16 @@ exports.delete = function(req, res) {
     });
 };
 
+exports.patch = function(req, res) {
+  for (var key in req.body) {
+//    var id = parseInt(key,10);
+    Project.find(key).success(function(project) {
+      project.updateAttributes({ 'orderId': req.body[key].orderId });
+    });
+  }
+  sendResponse(res, 'reordered', 200);
+};
+
 exports.put = function(req, res) {
   Project.find(req.body.id).success(function(project) {
     if (project) {

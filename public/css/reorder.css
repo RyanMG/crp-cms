@@ -8,4 +8,5 @@
 .wrapper-box .reorder-buttons button{width:130px;height:30px;margin:10px 10px 20px 0;background-color:#ccc;border:1px solid #aaa;border-radius:3px;font-size:14px;color:#666}
 .wrapper-box .reorder-buttons button:hover{background-color:#ddd}
 .wrapper-box .reorder-buttons button:focus{outline:none}
+.wrapper-box p.status{font-size:14px;color:#999;text-align:center;padding:5px}
 .wrapper-box:after{content:"";display:block;clear:both}

@@ -60,6 +60,22 @@ angular.module('crpCMSapp.factories', []).
         return deferred.promise;
       },
 
+      updateOrder: function(patchData) {
+        var data = this.parsePostData(patchData);
+        var deferred = $q.defer();
+        $http({
+          method: 'PATCH',
+          url: '/projects',
+          data: data,
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        }).success(function(data) {
+          deferred.resolve(data);
+        }).error(function(data) {
+          deferred.reject(error);
+        });
+        return deferred.promise;
+      },
+
       parsePostData: function(data) {
         var parsed = [],
             prop;

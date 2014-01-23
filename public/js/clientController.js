@@ -206,9 +206,8 @@ angular.module('crpCMSapp.controllers', []).
       $scope.allProjects.forEach(function(proj, index) {
         patchData[proj.id] = { orderId: index + 1 };
       });
-      ProjectServices.updateProject(patchData).then(function(result) {
-        $scope.clearForm();
-        $scope.$emit('addProject');
+      ProjectServices.updateOrder(patchData).then(function(result) {
+        $scope.status = "Projects reordered.";
       });
     };
 
