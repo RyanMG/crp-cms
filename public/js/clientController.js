@@ -189,6 +189,29 @@ angular.module('crpCMSapp.controllers', []).
       $scope.allProjects = data;
     });
 
+    $scope.resetDOM = function() {
+      $scope.allProjects.sort(function(a,b) {
+        if (a.orderId < b.orderId) {
+          return -1;
+        } else if (a.orderId > b.orderId) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
+    };
+
+    $scope.reorderProjects = function() {
+      var patchData = {};
+      $scope.allProjects.forEach(function(proj, index) {
+        patchData[proj.id] = { orderId: index + 1 };
+      });
+      ProjectServices.updateProject(patchData).then(function(result) {
+        $scope.clearForm();
+        $scope.$emit('addProject');
+      });
+    };
+
   }).
 
   //

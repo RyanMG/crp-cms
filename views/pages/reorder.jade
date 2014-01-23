@@ -1,8 +1,13 @@
 div#reorder(ng-controller="ReorderProjectCtrl")
   div.wrapper-box
     h1 Reorder project list
-    ul.reorder-listing(ui-sortable ng-model="allProjects")
+    ul.reorder-listing(ui-sortable, ng-model="allProjects")
       li.reorder-item(ng-repeat="project in allProjects | orderBy:'orderId'")
         p {{ project.title }}
         hr
         p {{ project.projectType }} Project
+
+    div.reorder-buttons
+      hr
+      button#submitReorder(ng-click="reorderProjects()") Reorder Projects
+      button#reset(ng-click="resetDOM()") Reset

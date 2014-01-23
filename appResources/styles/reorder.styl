@@ -1,9 +1,10 @@
 .wrapper-box
   margin-top 15px
-  width 100%
+  width 520px
   min-height 100px
   background-color transparent
   border 1px solid #aaa
+  padding 0 20px
 
   h1
     color #888
@@ -17,8 +18,8 @@
     text-align center
 
   ul.reorder-listing
-    padding 20px
     margin 0
+    padding 20px 0 0 0
 
     li.reorder-item
       float left
@@ -45,7 +46,29 @@
     li.reorder-item:nth-child(4n)
       margin-right 0
 
+  .reorder-buttons
+    clear both
+    margin-top 10px
+
+    button
+        width 130px
+        height 30px
+        margin 10px 10px 20px 0
+        background-color #ccc
+        border 1px solid #aaa
+        border-radius 3px
+        font-size 14px
+        color #666
+
+      button:hover
+        background-color #ddd
+
+      button:focus
+        outline none
+
+
 .wrapper-box:after
   content ""
   display block
   clear both
+
